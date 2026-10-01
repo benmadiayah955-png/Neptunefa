@@ -70,3 +70,35 @@ AddEventHandler('playerDropped', function()
         end
     end
 end)
+RegisterNetEvent('neptune_billiard:shot', function(tableId, power)
+    local src = source
+    local game = games[tableId]
+
+    if not game then
+        return
+    end
+
+    if #game.players ~= 2 then
+        return
+    end
+
+    power = tonumber(power)
+
+    if not power then
+        return
+    end
+
+    power = math.max(
+        Config.ShotPowerMin,
+        math.min(power, Config.ShotPowerMax)
+    )
+
+    for _, player in ipairs(game.players) do
+        TriggerClientEvent(
+            'neptune_billiard:receiveShot',
+            player,
+            src,
+            power
+        )
+    end
+end)
