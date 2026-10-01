@@ -64,3 +64,57 @@ CreateThread(function()
         }
     })
 end)
+local aiming = false
+local shotPower = 0.1
+
+CreateThread(function()
+    while true do
+        Wait(0)
+
+        if currentGame and not aiming then
+            if IsControlJustPressed(0, 38) then
+                aiming = true
+                shotPower = Config.ShotPowerMin
+
+                TriggerEvent(
+                    'neptune_billiard:notify',
+                    'Mode visée activé.'
+                )
+            end
+        end
+    end
+end)
+CreateThread(function()
+    while true do
+        Wait(0)
+
+        if aiming then
+
+            DisableControlAction(0, 24, true)
+
+            if IsControlPressed(0, 172) then
+                shotPower = math.min(
+                    shotPower + Config.ShotPowerStep,
+                    Config.ShotPowerMax
+                )
+            end
+
+            if IsControlPressed(0, 173) then
+                shotPower = math.max(
+                    shotPower - Config.ShotPowerStep,
+                    Config.ShotPowerMin
+                )
+            end
+
+            if IsControlJustPressed(0, 191) then
+                aiming = false
+
+                TriggerServerEvent(
+                    'neptune_billiard:shot',
+                    currentGame,
+                    shotPower
+                )
+            end
+        end
+    end
+end)
