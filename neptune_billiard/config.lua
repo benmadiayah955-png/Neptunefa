@@ -17,3 +17,22 @@ Config.Tables = {
         camera = vector3(0.0, 0.0, 0.0)
     }
 }
+Config.BallModel = `prop_poolball_01`
+
+Config.Balls = {
+    { id = 1, type = 'cue' },
+    { id = 2, type = 'solid' },
+    { id = 3, type = 'solid' },
+    { id = 4, type = 'solid' },
+    { id = 5, type = 'solid' },
+    { id = 6, type = 'solid' },
+    { id = 7, type = 'solid' },
+    { id = 8, type = 'black' },
+    { id = 9, type = 'stripe' },
+    { id = 10, type = 'stripe' },
+    { id = 11, type = 'stripe' },
+    { id = 12, type = 'stripe' },
+    { id = 13, type = 'stripe' },
+    { id = 14, type = 'stripe' },
+    { id = 15, type = 'stripe' }
+}
