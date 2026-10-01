@@ -43,3 +43,24 @@ RegisterNetEvent('neptune_billiard:notify', function(message)
         }
     )
 end)
+CreateThread(function()
+    exports.ox_target:addSphereZone({
+        coords = Config.Tables[1].coords,
+        radius = 1.5,
+
+        options = {
+            {
+                name = 'neptune_billiard_play',
+                icon = 'fa-solid fa-circle-dot',
+                label = 'Jouer au billard',
+
+                onSelect = function()
+                    TriggerServerEvent(
+                        'neptune_billiard:createGame',
+                        1
+                    )
+                end
+            }
+        }
+    })
+end)
