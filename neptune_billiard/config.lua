@@ -6,6 +6,11 @@ Config.StartingPoints = 200
 Config.Tables = {
     {
         coords = vector3(0.0, 0.0, 0.0),
-        heading = 0.0
+        heading = 0.0,
+
+        player1 = vector4(0.0, 0.0, 0.0, 0.0),
+        player2 = vector4(0.0, 0.0, 0.0, 180.0),
+
+        camera = vector3(0.0, 0.0, 0.0)
     }
 }
