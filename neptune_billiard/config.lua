@@ -1,6 +1,9 @@
 Config = {}
 
 Config.MaxPlayers = 2
+Config.ShotPowerMin = 0.1
+Config.ShotPowerMax = 1.0
+Config.ShotPowerStep = 0.05
 Config.StartingPoints = 200
 
 Config.Tables = {
