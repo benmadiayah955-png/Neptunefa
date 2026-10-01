@@ -115,6 +115,14 @@ CreateThread(function()
                     shotPower
                 )
             end
-        end
+            end
     end
+end)
+RegisterNetEvent('neptune_billiard:receiveShot', function(player, power)
+    print(
+        'Tir reçu : joueur ' ..
+        tostring(player) ..
+        ' | puissance : ' ..
+        tostring(power)
+    )
 end)
